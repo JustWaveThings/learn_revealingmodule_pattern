@@ -2,6 +2,8 @@ body {
   background: #fafafa;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: #333;
+  background: linear-gradient(#944141, #9198e5);
+  height: 100vh;
 }
 
 .hero-unit {
@@ -35,7 +37,7 @@ input {
 }
 
 button {
-  zoom: 2;
+  zoom: 1.5;
   background-color: #999;
   border: 1px solid #999;
   border-radius: 4px;
