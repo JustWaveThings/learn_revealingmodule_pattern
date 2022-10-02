@@ -38,12 +38,12 @@ const people = (function () {
 
 	function deletePerson(e) {
 		const nameToRemove = e.target.closest('li');
-		function actuallyRemove(parent = nameToRemove) {
+		const step = (parent = nameToRemove) => {
 			parent.closest('li').remove();
 			while (parent.firstChild) {
 				parent.removeChild(parent.firstChild);
 			}
-		}
-		actuallyRemove();
+		};
+		step();
 	}
 })();
