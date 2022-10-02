@@ -31,9 +31,17 @@ const people = (function () {
 		span.textContent = person;
 	}
 
-	function _reRenderArray() {}
+	function _reRenderArray() {
+		_allRemoveStep(displayOfPeople);
+		people.forEach(_render);
+	}
 
-	function _step(parent) {
+	function _allRemoveStep(parent) {
+		while (parent.firstChild) {
+			parent.removeChild(parent.firstChild);
+		}
+	}
+	function _removeStep(parent) {
 		parent.remove();
 		while (parent.firstChild) {
 			parent.removeChild(parent.firstChild);
@@ -58,13 +66,11 @@ const people = (function () {
 		let i;
 		if (typeof e === 'number') {
 			i = e;
-			console.log(i);
 			people.splice(i, 1);
-			console.log({ people });
 			_reRenderArray();
 		} else {
 			const nameToRemove = e.target.closest('li');
-			_step(nameToRemove);
+			_removeStep(nameToRemove);
 		}
 	}
 	return {
