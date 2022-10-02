@@ -38,8 +38,10 @@ const people = (function () {
 		}
 	}
 
-	function addPerson() {
-		people.push(inputName.value);
+	function addPerson(value) {
+		typeof value === 'string'
+			? people.push(value)
+			: people.push(inputName.value);
 		_render(people.slice(-1));
 		inputName.value = '';
 	}
@@ -54,4 +56,8 @@ const people = (function () {
 		};
 		step();
 	}
+	return {
+		addPerson,
+		deletePerson,
+	};
 })();
