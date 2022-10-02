@@ -15,10 +15,14 @@ const people = (function () {
 
 	function _render(person) {
 		const li = document.createElement('li');
+		li.classList.add(person);
 		const span = document.createElement('span');
 		const i = document.createElement('i');
 		i.classList.add('del');
 		i.textContent = 'Delete';
+		i.addEventListener('click', (e) => {
+			deletePerson(e);
+		});
 		displayOfPeople.appendChild(li);
 		li.appendChild(i);
 		li.insertBefore(span, i);
@@ -32,12 +36,18 @@ const people = (function () {
 		inputName.value = '';
 	}
 
-	const deleteButtons = document.querySelectorAll('i');
-	//console.log(deleteButtons);
-	deleteButtons.forEach((button) => {
-		button.addEventListener('click', () => {
-			console.log(`delete button clicked -- ${button.closest('li')}`);
-		});
-	});
-	function deletePerson(e) {}
+	function deletePerson(e) {
+		console.log(
+			`delete button clicked -- ${e.target.closest('li').classList}}`
+		);
+		const nameToRemove = e.target.closest('li');
+		function actuallyRemove(parent = nameToRemove) {
+			parent.closest('li').remove();
+			while (parent.firstChild) {
+				parent.removeChild(parent.firstChild);
+				console.log(parent.parentElement);
+			}
+		}
+		actuallyRemove();
+	}
 })();
