@@ -29,6 +29,7 @@ const people = (function () {
 		people.push(inputName.value);
 		console.log(people);
 		_render(people.slice(-1));
+		inputName.value = '';
 	}
 
 	const deleteButtons = document.querySelectorAll('i');
