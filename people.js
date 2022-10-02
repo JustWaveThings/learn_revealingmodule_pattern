@@ -9,6 +9,9 @@ const people = (function () {
 
 	// bind events
 	addButton.addEventListener('click', addPerson);
+	inputName.addEventListener('keypress', (e) => {
+		enterToAddPerson(e);
+	});
 
 	// render people initally
 	people.forEach(_render);
@@ -29,9 +32,14 @@ const people = (function () {
 		span.textContent = person;
 	}
 
+	function enterToAddPerson(e) {
+		if (e.key === 'Enter') {
+			addPerson();
+		}
+	}
+
 	function addPerson() {
 		people.push(inputName.value);
-		console.log(people);
 		_render(people.slice(-1));
 		inputName.value = '';
 	}
