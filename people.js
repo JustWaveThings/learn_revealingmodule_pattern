@@ -37,15 +37,11 @@ const people = (function () {
 	}
 
 	function deletePerson(e) {
-		console.log(
-			`delete button clicked -- ${e.target.closest('li').classList}}`
-		);
 		const nameToRemove = e.target.closest('li');
 		function actuallyRemove(parent = nameToRemove) {
 			parent.closest('li').remove();
 			while (parent.firstChild) {
 				parent.removeChild(parent.firstChild);
-				console.log(parent.parentElement);
 			}
 		}
 		actuallyRemove();
