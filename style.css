@@ -5,6 +5,10 @@ body {
   background: linear-gradient(#944141, #9198e5);
   height: 100vh;
   text-align: center;
+  overflow-y: hidden;
+    /* Hide vertical scrollbar */
+    overflow-x: hidden;
+    /* Hide horizontal scrollbar */
 }
 
 .hero-unit {
