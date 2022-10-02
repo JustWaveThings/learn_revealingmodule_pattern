@@ -10,10 +10,9 @@ const people = (function () {
 	// bind events
 	addButton.addEventListener('click', addPerson);
 	inputName.addEventListener('keypress', (e) => {
-		enterToAddPerson(e);
+		_enterToAddPerson(e);
 	});
 
-	// render people initally
 	people.forEach(_render);
 
 	function _render(person) {
@@ -32,7 +31,16 @@ const people = (function () {
 		span.textContent = person;
 	}
 
-	function enterToAddPerson(e) {
+	function _reRenderArray() {}
+
+	function _step(parent) {
+		parent.remove();
+		while (parent.firstChild) {
+			parent.removeChild(parent.firstChild);
+		}
+	}
+
+	function _enterToAddPerson(e) {
 		if (e.key === 'Enter') {
 			addPerson();
 		}
@@ -47,14 +55,17 @@ const people = (function () {
 	}
 
 	function deletePerson(e) {
-		const nameToRemove = e.target.closest('li');
-		const step = (parent = nameToRemove) => {
-			parent.closest('li').remove();
-			while (parent.firstChild) {
-				parent.removeChild(parent.firstChild);
-			}
-		};
-		step();
+		let i;
+		if (typeof e === 'number') {
+			i = e;
+			console.log(i);
+			people.splice(i, 1);
+			console.log({ people });
+			_reRenderArray();
+		} else {
+			const nameToRemove = e.target.closest('li');
+			_step(nameToRemove);
+		}
 	}
 	return {
 		addPerson,
