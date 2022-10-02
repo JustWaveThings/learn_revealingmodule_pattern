@@ -43,9 +43,7 @@ const people = (function () {
 	}
 	function _removeStep(parent) {
 		parent.remove();
-		while (parent.firstChild) {
-			parent.removeChild(parent.firstChild);
-		}
+		_allRemoveStep(parent);
 	}
 
 	function _enterToAddPerson(e) {
@@ -60,6 +58,7 @@ const people = (function () {
 			: people.push(inputName.value);
 		_render(people.slice(-1));
 		inputName.value = '';
+		console.log(people);
 	}
 
 	function deletePerson(e) {
@@ -70,8 +69,12 @@ const people = (function () {
 			_reRenderArray();
 		} else {
 			const nameToRemove = e.target.closest('li');
+			const nameToPopFromArray = e.target.closest('li').classList[0];
+			people.splice(people.indexOf(nameToPopFromArray), 1);
 			_removeStep(nameToRemove);
+			_reRenderArray();
 		}
+		console.log(people);
 	}
 	return {
 		addPerson,
