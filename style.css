@@ -4,6 +4,7 @@ body {
   color: #333;
   background: linear-gradient(#944141, #9198e5);
   height: 100vh;
+  text-align: center;
 }
 
 .hero-unit {
@@ -49,38 +50,34 @@ button.active {
   background-color: rgb(165, 227, 158);
 }
 
-#peopleModule {
-  text-align: center;
-}
-
-#peopleModule ul {
+ ul {
   padding: 0;
 }
 
-#peopleModule li {
+ li {
   display: inline-block;
   list-style-type: none;
   background: #98ec9b;
   border-radius: 5px;
   padding: 3px 8px;
-  margin: 5px 0;
+  margin: 5px 2px;
   width: 200px;
   opacity: 0.8;
   transition: opacity 0.3s;
 }
 
-#peopleModule li:hover {
+li:hover {
   opacity: 1;
 }
 
-#peopleModule li span {
+li span {
   display: inline-block;
   width: 160px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-#peopleModule li i {
+li i {
   cursor: pointer;
   font-weight: bold;
   float: right;
@@ -95,6 +92,6 @@ button.active {
   margin-top: 3px;
 }
 
-#peopleModule li i:hover {
+li i:hover {
   opacity: 1;
 }
