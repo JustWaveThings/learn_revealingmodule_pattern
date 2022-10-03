@@ -13,6 +13,7 @@ const people = (function () {
 		_enterToAddPerson(e);
 	});
 
+	// first render
 	people.forEach(_render);
 
 	function _render(person) {
